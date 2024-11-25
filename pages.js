@@ -7,7 +7,7 @@ function getPage ( numPage ) {
 
 	if (numPage == test++ ) return [
 		'Introduction',
-		'introduction.html'
+		'https://docs.google.com/document/d/e/2PACX-1vRQbazzegdrSO96qtf-ZjddeuoEqU4BqAwnRT-MRj_SRtB4aO-i7xMoUWQ9Z8ua7uY3oi8Tqr2DJxk8/pub'
 	];
 
 	if (numPage == test++ ) return [
