@@ -1,20 +1,76 @@
-v2
-<a href='index.html' onclick='loadPage(0);'>Menu</a>
-<button onclick='loadPage(0);'>Menu</button>
+<style>
+    body{
+        margin: 0; /* Remove default margin */
+    }
+    iframe{      
+        display: block;  /* iframes are inline by default */   
+        height: 95vh;  /* Set height to 100% of the viewport height */   
+        width: 95vw;  /* Set width to 100% of the viewport width */     
+        border: none; /* Remove default border */
+        background: lightyellow; /* Just for styling */
+    }
+</style>
 
-<br>
 
-<iframe id="mainFrame"></iframe>
+<body>
+
+
+<table>
+	<tr>
+		<td>
+
+			<button onclick='loadPage(0);'>Menu</button>
+			<button onclick='loadPage(mainPage-1);'>Precédente</button>
+			<button onclick='loadPage(mainPage+1);'>
+				&nbsp;&nbsp;<b>Suivante</b>&nbsp;&nbsp;
+			</button>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;
+			
+			<span id='spanNumPage'></span>
+			&nbsp;&nbsp;
+			<span id='spanPageTitle'></span>
+
+		</td>
+	<tr>
+	</tr>
+		<td>
+			<iframe id="mainFrame"></iframe>
+		</td>
+	</tr>
+</table>
+
+
 
 <script src='pages.js'></script>
 
 <script>
+	mainPage = 0;
+	loadPage(mainPage);
+
 	function loadPage(numPage) {
-		pageData = getPage ( numPage );
-		document.getElementById('mainFrame')
-			.setAttribute('title',pageData[0])
-			.setAttribute('src',pageData[1])
-		;
+		mainPage = numPage;
+
+		pageData = getPage ( mainPage );
+
+		document.getElementById('spanNumPage').innerHTML = mainPage;
+		frame = document.getElementById('mainFrame');
+
+		if (pageData==null) {
+			document.getElementById('spanPageTitle').innerHTML = null;
+
+			frame.setAttribute('title','Page inexistante');
+			frame.setAttribute('src',null);
+
+		} else {
+			document.getElementById('spanPageTitle').innerHTML = pageData[0];
+
+			frame.setAttribute('title',pageData[0]);
+			frame.setAttribute('src',pageData[1]);
+		}
+
 		return false;
 	}
 </script>
+
+</body>
