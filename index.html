@@ -1,3 +1,15 @@
-Hello World
-<br>
-<a href="000.html">Javascript classes</a>
+<a href='index.html' onclick='loadPage(0);'>Menu</a>
+
+<iframe id="mainFrame"></iframe>
+
+<script src='pages.js'></script>
+
+<script>
+	function loadPage(numPage) {
+		pageData = getPage ( numPage );
+		document.getElementById('mainFrame')
+			.setAttribute('title',pageData[0])
+			.setAttribute('src',pageData[1])
+		;
+	}
+</script>
