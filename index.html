@@ -51,6 +51,7 @@
    function getCookie(cookieName) {
        let cookies = document.cookie;
        let cookieArray = cookies.split("; ");
+       console.log ( cookieArray);
   
        for (let i = 0; i < cookieArray.length; i++) {
            let cookie = cookieArray[i];
@@ -66,13 +67,10 @@
 
 
     function randomString ( len ) {
-    	console.log ( 'randst 0');
     	let st = '';
     	const chars = 'QWERTYUIOPASDFGHJKLZXCVBNM1234567890';
     	const charslen = chars.length;
-    	console.log ( 'randst 1');
     	for ( i=0; i<len; i++ ) {
-    	console.log ( 'randst 0');
     		st += chars.charAt(Math.floor(Math.random()*charslen));
     	}
     	return st;
@@ -80,16 +78,15 @@
 
 
 	function getIdBrowser() {
-		console.log ( 'getIdBrowser 0' );
 		let idb = getCookie('idb');
-		console.log ( 'getIdBrowser 1 ',idb );
 		if (idb == null) {
-			console.log ( 'getIdBrowser 2 ',idb );
 			idb = randomString ( 8 );
-			console.log ( 'getIdBrowser 3 ',idb );
-			document.cookies = "idb="+idb;
+			console.log ( 'created idBrowser ',idb );
+			document.cookie = "idb="+idb+"; path=/";
+			console.log ( 'cookise:',document.cookie );
+			document.cookie = "bak="+idb+"; path=/";
+			console.log ( 'cookise:',document.cookie );
 		}
-		console.log ( 'getIdBrowser end ',idb );
 		return idb;
 	}
 
