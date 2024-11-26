@@ -13,15 +13,13 @@
 
 <body>
 
-
 <table>
 	<tr>
 		<td>
 
-			<button onclick='loadPage(0);'>Menu</button>
-			<button onclick='loadPage(mainPage-1);'>Precédente</button>
-			<button onclick='loadPage(mainPage+1);'>
-				&nbsp;&nbsp;<b>Suivante</b>&nbsp;&nbsp;
+			<button onclick='loadPage(currPage-1);'>Page precédente</button>
+			<button onclick='loadPage(currPage+1);'>
+				&nbsp;&nbsp;<b>Page suivante</b>&nbsp;&nbsp;
 			</button>
 			
 			&nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;
@@ -29,7 +27,10 @@
 			<span id='spanNumPage'></span>
 			&nbsp;&nbsp;
 			<span id='spanPageTitle'></span>
-
+			
+			&nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;
+			
+			<span id='idBrowser'></span>
 		</td>
 	<tr>
 	</tr>
@@ -44,16 +45,65 @@
 <script src='pages.js'></script>
 
 <script>
-	mainPage = 0;
-	loadPage(mainPage);
+	currPage = 0;
+	loadPage(currPage);
 
-	function loadPage(numPage) {
-		mainPage = numPage;
+   function getCookie(cookieName) {
+       let cookies = document.cookie;
+       let cookieArray = cookies.split("; ");
+  
+       for (let i = 0; i < cookieArray.length; i++) {
+           let cookie = cookieArray[i];
+           let [name, value] = cookie.split("=");
+       
+           if (name === cookieName) {
+              return decodeURIComponent(value);
+           }
+        }
+     
+        return null;
+    }
 
-		pageData = getPage ( mainPage );
 
-		document.getElementById('spanNumPage').innerHTML = mainPage;
-		frame = document.getElementById('mainFrame');
+    function randomString ( len ) {
+    	console.log ( 'randst 0');
+    	let st = '';
+    	const chars = 'QWERTYUIOPASDFGHJKLZXCVBNM1234567890';
+    	const charslen = chars.length;
+    	console.log ( 'randst 1');
+    	for ( i=0; i<len; i++ ) {
+    	console.log ( 'randst 0');
+    		st += chars.charAt(Math.floor(Math.random()*charslen));
+    	}
+    	return st;
+    }
+
+
+	function getIdBrowser() {
+		console.log ( 'getIdBrowser 0' );
+		let idb = getCookie('idb');
+		console.log ( 'getIdBrowser 1 ',idb );
+		if (idb == null) {
+			console.log ( 'getIdBrowser 2 ',idb );
+			idb = randomString ( 8 );
+			console.log ( 'getIdBrowser 3 ',idb );
+			document.cookies = "idb="+idb;
+		}
+		console.log ( 'getIdBrowser end ',idb );
+		return idb;
+	}
+
+
+	function loadPage ( newPage ) {
+		currPage = newPage;
+
+		let idBrowser = getIdBrowser();
+		let pageData = getPage ( currPage );
+
+		document.getElementById('spanNumPage').innerHTML = currPage;
+		document.getElementById('idBrowser').innerHTML = idBrowser;
+		let frame = document.getElementById('mainFrame');
+
 
 		if (pageData==null) {
 			document.getElementById('spanPageTitle').innerHTML = null;
@@ -65,7 +115,7 @@
 			document.getElementById('spanPageTitle').innerHTML = pageData[0];
 
 			frame.setAttribute('title',pageData[0]);
-			frame.setAttribute('src',pageData[1]);
+			frame.setAttribute('src',pageData[2]);
 		}
 
 		return false;
