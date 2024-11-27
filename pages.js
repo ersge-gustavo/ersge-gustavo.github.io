@@ -17,7 +17,7 @@ function getPage ( numPage ) {
 	];
 
 	if (numPage == test++ ) return [
-		'Actions à partir de click de buttons', 'BtnOnClick', true,
+		'Actions à partir de click de buttons', 'BtnOnClick', false,
 		'https://docs.google.com/document/d/e/2PACX-1vQKoeCxZt53m_HVj5pgnOHHu4Jq15ZBfVdHcnmIIF0q0W5CmUwfIiCcA-dJb1rd088Ka_vgNu0NLkBN/pub'
 	];
 
@@ -27,7 +27,7 @@ function getPage ( numPage ) {
 
 
 	if (numPage == test++ ) return [
-		'Fonctions en Javascript', 'FuntionsJS', true,
+		'Fonctions en Javascript', 'FuntionsJS', false,
 		'https://docs.google.com/document/d/e/2PACX-1vRL03NXN4jrD84ycza_9ecrmWQk0JNasiwFguyzu2hxqMsi6_LHU05puzlXRg4ue-MSty_yrrl7fr-4/pub'
 	];
 
