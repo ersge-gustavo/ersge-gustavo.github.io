@@ -32,7 +32,7 @@ function getPage ( numPage ) {
 	];
 
 	if (numPage == test++ ) return [
-		'Le jeu Papier / Caillou / Ciseaux', 'JeuPCC', true,
+		'Le jeu Papier / Caillou / Ciseaux', 'JeuPCC', false,
 		'https://docs.google.com/document/d/e/2PACX-1vTR_ci7SiESvdVpm94wO6EXEoUYj6ta7_SRqcF5DMgIB7hvMy9HN_k0su99pL2t7GVHO3xvk6Q25ZRH/pub'
 	];
 
