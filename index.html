@@ -6,7 +6,7 @@
     iframe{      
         display: block;  /* iframes are inline by default */   
         height: 95vh;  /* Set height to % of the viewport height */   
-        width: 95vw;  /* Set width to % of the viewport width */     
+        width: 99vw;  /* Set width to % of the viewport width */     
         border: none; /* Remove default border */
     }
 </style>
@@ -49,7 +49,8 @@
 <script>
 	// 2024-11-26 by gustavo.exel@ersge.ch guexel@gmail.com
 
-	currPage = getParamFromURL('page') || 0;
+	currPage = getParamFromURL('page');
+	if (currPage == null) currPage = 0;
 	loadPage(currPage);
 
 
