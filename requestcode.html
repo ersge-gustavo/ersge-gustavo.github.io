@@ -1,0 +1,48 @@
+
+<script src='./gutil.js'></script>
+
+<center>
+
+	<br> <br> <br> <br>
+	<br> <br> <br> <br>
+
+	<img id="qrcode">
+
+	<br><br><br><br>
+
+	<input id="entercode" type="text" size="10" 
+		style="font-size:24px;" 
+		onkeydown="inputKeyDown(event);"
+	>
+
+	<br><br><br><br>
+
+	<span id="entered"></span>
+
+</center>
+
+
+<script>
+	let maintenant = new Date();
+	let qrtext = 
+		"guexqr:coursinformatique" 
+		+ "/" + getIdBrowser() 
+		+ "/" + getParamFromURL("code") 
+		+ "/" + maintenant.toISOString()
+	;
+
+	document.getElementById ( 'qrcode' ).setAttribute ( 
+		"src",
+		"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+qrtext
+	);
+	document.getElementById ( 'entercode' ).focus();
+
+
+	function inputKeyDown ( event ) {
+		if (event.keyCode == 13) {
+			document.getElementById("entered").innerHTML = 
+				document.getElementById("entercode").value
+			;
+		}
+	}
+</script>
