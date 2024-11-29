@@ -3,7 +3,7 @@
 
 function getParamFromURL ( paramName ) {
 	const urlParams = new URLSearchParams(window.location.search);
-	return urlParams.get('paramName') || 0;
+	return urlParams.get(paramName);
 }
 
 
