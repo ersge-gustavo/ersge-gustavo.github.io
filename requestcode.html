@@ -12,7 +12,7 @@
 
 	<br><br><br><br>
 
-	<input id="entercode" type="text" size="6" 
+	<input id="entercode" type="password" size="6" 
 		style="font-size:24px;" 
 		onkeydown="inputKeyDown(event);"
 	>
@@ -45,12 +45,15 @@
 			+ "/" + maintenant.toISOString()
 			+ "/" + randomString09(8)
 		;
-		unblockCode = calculateCRC ( qrtext ) % 1000000;
+		unblockCode = Math.abd ( calculateCRC ( qrtext ) % 1000000 );
+		unblockCode2 = qrtext.substring ( qrtext.length-5 );
 
 		document.getElementById ( 'qrcode' ).setAttribute ( 
 			"src",
 			"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+qrtext
 		);
+
+		document.getElementById ( 'helptext' ).innerHTML = reqtext;
 
 		document.getElementById ( 'entercode' ).value = "";
 		document.getElementById ( 'entercode' ).focus();
@@ -66,11 +69,25 @@
 
 	function checkCode () {
 		let valueEntered = document.getElementById("entercode").value;
-		if ((valueEntered == unblockCode) || (valueEntered == "moca"+(numPage*3))) {
+		console.log ( 'numPage ',numPage );
+		console.log ( 'entered '+valueEntered);
+		console.log ( 'unblockCode '+unblockCode);
+		console.log ( 'moca '+"moca"+(numPage*3));
+		if (
+			(valueEntered == unblockCode) 
+			|| 
+			(valueEntered == "moca"+(numPage*3))
+			||
+			(valueEntered == rq)
+		) {
+			console.log ( 'ok!!!');
 			let maintenant = new Date();
-			document.cookie = pageCode+"="+maintenant.toISOString()+"/"+valueEntered+"; path=/";
-			window.parent.location.reload();
+			console.log ( 'antes ', document.cookie );
+			document.cookie = pageCode+"="+maintenant.toISOString()+"-"+valueEntered+"; path=/";
+			console.log ( 'depois ', document.cookie );
+			//window.parent.location.reload();
 		} else {
+			console.log ( 'erro...');
 			showQR();
 		}
 	}
