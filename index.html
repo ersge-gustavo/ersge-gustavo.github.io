@@ -82,7 +82,7 @@
 			frame.setAttribute('title',pageData[0]);
 
 			if (pageData[2] && (getCookie ( pageData[1] ) == null)) {
-				frame.setAttribute ( 'src', './requestcode.html?code='+pageData[1] );
+				frame.setAttribute ( 'src', './requestcode.html?code='+pageData[1]+'&np='+currPage );
 			} else {
 				frame.setAttribute ( 'src', pageData[3] );
 			}

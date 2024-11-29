@@ -29,6 +29,7 @@
 <script>
 	let unblockCode = null;
 	let pageCode = getParamFromURL("code");
+	let numPage = parseInt ( getParamFromURL('np') );
 
 	showQR();
 
@@ -48,7 +49,6 @@
 			"src",
 			"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+qrtext
 		);
-		document.getElementById ( "helptext" ).innerHTML = qrtext;
 
 		document.getElementById ( 'entercode' ).value = "";
 		document.getElementById ( 'entercode' ).focus();
@@ -63,7 +63,7 @@
 
 	function checkCode () {
 		let valueEntered = document.getElementById("entercode").value;
-		if ((valueEntered == unblockCode) || (valueEntered == "ok")) {
+		if ((valueEntered == unblockCode) || (valueEntered == "moca"+(numPage*3))) {
 			let maintenant = new Date();
 			document.cookie = pageCode+"="+maintenant.toISOString()+"/"+valueEntered+"; path=/";
 			window.parent.location.reload();
