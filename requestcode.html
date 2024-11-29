@@ -16,6 +16,8 @@
 		style="font-size:24px;" 
 		onkeydown="inputKeyDown(event);"
 	>
+	&nbsp;
+	<button onclick="checkCode();">Ok</button>
 
 	<br><br><br><br>
 
@@ -54,14 +56,18 @@
 
 	function inputKeyDown ( event ) {
 		if (event.keyCode == 13) {
-			let valueEntered = document.getElementById("entercode").value;
-			if ((valueEntered == unblockCode) || (vallueEntered == "ok")) {
-				let maintenant = new Date();
-				document.cookie = pageCode+"="+maintenant.toISOString()+"/"+valueEntered+"; path=/";
-				window.parent.location.reload();
-			} else {
-				showQR();
-			}
+			checkCode();
+		}
+	}
+
+	function checkCode () {
+		let valueEntered = document.getElementById("entercode").value;
+		if ((valueEntered == unblockCode) || (valueEntered == "ok")) {
+			let maintenant = new Date();
+			document.cookie = pageCode+"="+maintenant.toISOString()+"/"+valueEntered+"; path=/";
+			window.parent.location.reload();
+		} else {
+			showQR();
 		}
 	}
 </script>
