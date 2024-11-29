@@ -19,7 +19,7 @@
 
 	<br><br><br><br>
 
-	<span id="entered"></span>
+	<span id="helptext"></span>
 
 </center>
 
@@ -45,6 +45,7 @@
 			"src",
 			"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+qrtext
 		);
+		document.getElementById ( "helptext", qrtext );
 
 		document.getElementById ( 'entercode' ).value = "";
 		document.getElementById ( 'entercode' ).focus();
@@ -53,9 +54,10 @@
 
 	function inputKeyDown ( event ) {
 		if (event.keyCode == 13) {
-			if ((document.getElementById("entercode").value == unblockCode) || (document.getElementById("entercode").value == "ok")) {
+			let valueEntered = document.getElementById("entercode").value;
+			if ((valueEntered == unblockCode) || (vallueEntered == "ok")) {
 				let maintenant = new Date();
-				document.cookie = pageCode+"="+maintenant.toISOString()+"; path=/";
+				document.cookie = pageCode+"="+maintenant.toISOString()+"/"+valueEntered+"; path=/";
 				window.parent.location.reload();
 			} else {
 				showQR();
