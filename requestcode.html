@@ -27,6 +27,7 @@
 
 
 <script>
+
 	let unblockCode = null;
 	let pageCode = getParamFromURL("code");
 	let numPage = parseInt ( getParamFromURL('np') );
@@ -61,6 +62,7 @@
 		}
 	}
 
+
 	function checkCode () {
 		let valueEntered = document.getElementById("entercode").value;
 		if ((valueEntered == unblockCode) || (valueEntered == "moca"+(numPage*3))) {
@@ -71,5 +73,6 @@
 			showQR();
 		}
 	}
+
 </script>
 
