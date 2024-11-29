@@ -61,3 +61,4 @@ function calculateCRC(data) {
     return crc ^ 0xFFFFFFFF;
 }
 
+

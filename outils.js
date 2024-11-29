@@ -17,3 +17,4 @@ function estMarque ( checkbox ) {
 function estMarqué ( checkbox ) {
 	return estMarque(checkbox);
 }
+
