@@ -25,28 +25,41 @@
 
 
 <script>
-	let maintenant = new Date();
-	let qrtext = 
-		"guexqr:coursinformatique" 
-		+ "/" + getIdBrowser() 
-		+ "/" + getParamFromURL("code") 
-		+ "/" + maintenant.toISOString()
-	;
-	let code = calculateCRC ( qrtext ) % 1000000;
+	let unblockCode = null;
+	let pageCode = getParamFromURL("code");
 
-	document.getElementById ( 'entered' ).innerHTML = qrtext+ "  " + code;
-	document.getElementById ( 'qrcode' ).setAttribute ( 
-		"src",
-		"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+qrtext
-	);
-	document.getElementById ( 'entercode' ).focus();
+	showQR();
+
+
+	function showQR() {
+		let maintenant = new Date();
+		let qrtext = 
+			"guexqr:coursinformatique" 
+			+ "/" + getIdBrowser() 
+			+ "/" + pageCode 
+			+ "/" + maintenant.toISOString()
+		;
+		unblockCode = calculateCRC ( qrtext ) % 1000000;
+
+		document.getElementById ( 'qrcode' ).setAttribute ( 
+			"src",
+			"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+qrtext
+		);
+
+		document.getElementById ( 'entercode' ).value = "";
+		document.getElementById ( 'entercode' ).focus();
+	}
 
 
 	function inputKeyDown ( event ) {
 		if (event.keyCode == 13) {
-			document.getElementById("entered").innerHTML = 
-				document.getElementById("entercode").value
-			;
+			if ((document.getElementById("entercode").value == unblockCode) || (document.getElementById("entercode").value == "ok")) {
+				let maintenant = new Date();
+				document.cookie = pageCode+"="+maintenant.toISOString()+"; path=/";
+				window.parent.location.reload();
+			} else {
+				showQR();
+			}
 		}
 	}
 </script>
