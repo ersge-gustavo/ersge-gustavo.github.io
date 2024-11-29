@@ -32,7 +32,9 @@
 		+ "/" + getParamFromURL("code") 
 		+ "/" + maintenant.toISOString()
 	;
+	let code = calculateCRC ( qrtext ) % 1000000;
 
+	document.getElementById ( 'entered' ).innerHTML = qrtext+ "  " + code;
 	document.getElementById ( 'qrcode' ).setAttribute ( 
 		"src",
 		"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+qrtext
