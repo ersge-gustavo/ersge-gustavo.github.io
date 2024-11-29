@@ -27,7 +27,12 @@ function getPage ( numPage ) {
 	];
 
 	if (numPage == test++ ) return [
-		'Fonctions en Javascript', 'FuntionsJS', true,
+		'La première fonction en Javascript', 'PrimFunc', true,
+		'https://docs.google.com/document/d/e/2PACX-1vSZz6ehL_UIYFhlJSAV5um6LHaNtZHIdj5fAD81VCmwaoBregSIt-c8rCrz0ZeE2yH9jaPJidmMcdOU/pub'
+	];
+
+	if (numPage == test++ ) return [
+		'Fonctions en Javascript', 'FuncsJS', true,
 		'https://docs.google.com/document/d/e/2PACX-1vRL03NXN4jrD84ycza_9ecrmWQk0JNasiwFguyzu2hxqMsi6_LHU05puzlXRg4ue-MSty_yrrl7fr-4/pub'
 	];
 
