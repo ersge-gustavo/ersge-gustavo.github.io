@@ -72,6 +72,7 @@
 		console.log ( 'numPage ',numPage );
 		console.log ( 'entered '+valueEntered);
 		console.log ( 'unblockCode '+unblockCode);
+		console.log ( 'unblockCode2 '+unblockCode2);
 		console.log ( 'moca '+"moca"+(numPage*3));
 		if (
 			(valueEntered == unblockCode) 
@@ -85,7 +86,7 @@
 			console.log ( 'antes ', document.cookie );
 			document.cookie = pageCode+"="+maintenant.toISOString()+"-"+valueEntered+"; path=/";
 			console.log ( 'depois ', document.cookie );
-			//window.parent.location.reload();
+			window.parent.location.reload();
 		} else {
 			console.log ( 'erro...');
 			showQR();
