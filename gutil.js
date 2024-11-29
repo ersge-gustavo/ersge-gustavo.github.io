@@ -25,9 +25,20 @@ function getCookie(cookieName) {
 }
 
 
-function randomString ( length ) {
+function randomStringAZ09 ( length ) {
 	let st = '';
 	const chars = 'QWERTYUIOPASDFGHJKLZXCVBNM1234567890';
+	const charslen = chars.length;
+	for ( i=0; i<length; i++ ) {
+		st += chars.charAt(Math.floor(Math.random()*charslen));
+	}
+	return st;
+}
+
+
+function randomString09 ( length ) {
+	let st = '';
+	const chars = '1234567890';
 	const charslen = chars.length;
 	for ( i=0; i<length; i++ ) {
 		st += chars.charAt(Math.floor(Math.random()*charslen));
@@ -39,7 +50,7 @@ function randomString ( length ) {
 function getIdBrowser() {
 	let idb = getCookie('idb');
 	if (idb == null) {
-		idb = randomString ( 8 );
+		idb = randomStringAZ09 ( 8 );
 		console.log ( 'created idBrowser ',idb );
 		document.cookie = "idb="+idb+"; path=/";
 	}

@@ -39,16 +39,17 @@
 		let maintenant = new Date();
 		let qrtext = 
 			"guexqr:coursinformatique" 
-			+ "/" + randomString(10)
+			+ "/" + randomStringAZ09(10)
 			+ "/" + getIdBrowser() 
 			+ "/" + pageCode 
 			+ "/" + maintenant.toISOString()
+			+ "/" + randomString09(8)
 		;
 		unblockCode = calculateCRC ( qrtext ) % 1000000;
 
 		document.getElementById ( 'qrcode' ).setAttribute ( 
 			"src",
-			"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+qrtext
+			"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+qrtext
 		);
 
 		document.getElementById ( 'entercode' ).value = "";
