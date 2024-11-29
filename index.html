@@ -17,8 +17,8 @@
 <table>
 	<tr>
 		<td>
-			<button onclick='loadPage(currPage-1);'>Page precédente</button>
-			<button onclick='loadPage(currPage+1);'>
+			<button onclick="loadPage(parseInt(currPage)-1);">Page precédente</button>
+			<button onclick="loadPage(parseInt(currPage)+1);">
 				&nbsp;&nbsp;<b>Page suivante</b>&nbsp;&nbsp;
 			</button>
 
@@ -49,8 +49,12 @@
 <script>
 	// 2024-11-26 by gustavo.exel@ersge.ch guexel@gmail.com
 
-	currPage = getParamFromURL('page');
-	if (currPage == null) currPage = 0;
+	textCurrPage = getParamFromURL('page');
+	if ((textCurrPage == null) || (textCurrPage == "")) {
+		currPage = 0;
+	} else {
+		currPage = parseInt ( textCurrPage );
+	}
 	loadPage(currPage);
 
 
