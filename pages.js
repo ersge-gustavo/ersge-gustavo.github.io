@@ -17,22 +17,22 @@ function getPage ( numPage ) {
 	];
 
 	if (numPage == test++ ) return [
-		'Actions à partir de click de buttons', 'BtnOnClick', false,
+		'Actions à partir de click de buttons', 'BtnOnClick', true,
 		'https://docs.google.com/document/d/e/2PACX-1vQKoeCxZt53m_HVj5pgnOHHu4Jq15ZBfVdHcnmIIF0q0W5CmUwfIiCcA-dJb1rd088Ka_vgNu0NLkBN/pub'
 	];
 
 	if (numPage == test++ ) return [
-		'Actions multiples à partir de click de buttons', 'BtnOnClickMult', false,
+		'Actions multiples à partir de click de buttons', 'BtnOnClickMult', true,
 		'https://docs.google.com/document/d/e/2PACX-1vRafMFVvQ8hIinhiyxElGWOwLQdCoaSqD_05Mdum7sybNtb_4WRbauLAs8Ylza08NZnG_tBwdyH3RHe/pub'
 	];
 
 	if (numPage == test++ ) return [
-		'Fonctions en Javascript', 'FuntionsJS', false,
+		'Fonctions en Javascript', 'FuntionsJS', true,
 		'https://docs.google.com/document/d/e/2PACX-1vRL03NXN4jrD84ycza_9ecrmWQk0JNasiwFguyzu2hxqMsi6_LHU05puzlXRg4ue-MSty_yrrl7fr-4/pub'
 	];
 
 	if (numPage == test++ ) return [
-		'Le jeu Papier / Caillou / Ciseaux', 'JeuPCC', false,
+		'Le jeu Papier / Caillou / Ciseaux', 'JeuPCC', true,
 		'https://docs.google.com/document/d/e/2PACX-1vTR_ci7SiESvdVpm94wO6EXEoUYj6ta7_SRqcF5DMgIB7hvMy9HN_k0su99pL2t7GVHO3xvk6Q25ZRH/pub'
 	];
 
