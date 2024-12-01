@@ -16,12 +16,6 @@
 	&nbsp;
 	<button onclick="checkCode();">Ok</button>
 
-	<br><br><br><br>
-
-	<span id="helptext"></span>
-	<br><br>
-	<span id="helptext2"></span>
-
 </center>
 
 
@@ -51,9 +45,6 @@
 			"src",
 			"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+qrtext
 		);
-
-		document.getElementById ( 'helptext' ).innerHTML = qrtext;
-		document.getElementById ( 'helptext2' ).innerHTML = "xamksxlkjasknj @@ @ "+unblockCode;
 
 		document.getElementById ( 'entercode' ).value = "";
 		document.getElementById ( 'entercode' ).focus();
