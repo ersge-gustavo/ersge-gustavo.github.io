@@ -75,5 +75,3 @@ function calculateCRC32(data) {
 	}
     return crc;
 }
-
-
