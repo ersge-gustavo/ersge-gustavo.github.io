@@ -58,7 +58,7 @@ function getIdBrowser() {
 }
 
 
-function calculateCRC(data) {
+function calculateCRC32(data) {
     const polynomial = 0xEDB88320;
     let crc = 0xFFFFFFFF;
 
