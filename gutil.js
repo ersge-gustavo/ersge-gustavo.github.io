@@ -68,9 +68,12 @@ function calculateCRC32(data) {
             crc = (crc >>> 1) ^ (crc & 1 ? polynomial : 0);
         }
     }
-
-    return crc ^ 0xFFFFFFFF;
+	crc ^= 0xFFFFFFFF;
+	crc = BigInt(crc);
+	if (crc<0) {
+		crc = crc + 0x100000000n;
+	}
+    return crc;
 }
-
 
 
