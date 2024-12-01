@@ -69,26 +69,15 @@
 
 	function checkCode () {
 		let valueEntered = document.getElementById("entercode").value;
-		console.log ( 'numPage ',numPage );
-		console.log ( 'entered '+valueEntered);
-		console.log ( 'unblockCode '+unblockCode);
-		console.log ( 'unblockCode2 '+unblockCode2);
-		console.log ( 'moca '+"coma"+(numPage*3));
 		if (
 			(valueEntered == unblockCode) 
-			|| 
-			(valueEntered == unblockCode2)
 			||
 			(valueEntered == "coma"+(numPage*3))
 		) {
-			console.log ( 'ok!!!');
 			let maintenant = new Date();
-			console.log ( 'antes ', document.cookie );
 			document.cookie = pageCode+"="+maintenant.toISOString()+"-"+valueEntered+"; path=/";
-			console.log ( 'depois ', document.cookie );
 			window.parent.location.reload();
 		} else {
-			console.log ( 'erro...');
 			showQR();
 		}
 	}
