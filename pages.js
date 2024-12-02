@@ -91,11 +91,6 @@ function getPage ( numPage ) {
 		'https://docs.google.com/document/d/e/2PACX-1vQ3Xg5kd082kdZwRDAusClR8A_Xy7Oailp1I2BEwcsmZ5vcETQ9e9X9WztuCVKiPowJuim-ohx4Rmjh/pub'
 	];
 
-	if (numPage == test++ ) return [
-		'-- rien --', 'rien', true,
-		'https://docs.google.com/document/d/e/2PACX-1vRL03NXN4jrD84ycza_9ecrmWQk0JNasiwFguyzu2hxqMsi6_LHU05puzlXRg4ue-MSty_yrrl7fr-4/pub'
-	];
-
 
 	return null;
 }
