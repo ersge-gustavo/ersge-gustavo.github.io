@@ -62,12 +62,12 @@ function getPage ( numPage ) {
 	];
 
 	if (numPage == test++ ) return [
-		'Afficher le résultat: qui a gagné, dabord identifier l''égalité', 'VerifierEgalite', true,
+		'Afficher le résultat: qui a gagné, dabord identifier l\'égalité', 'VerifierEgalite', true,
 		'https://docs.google.com/document/d/e/2PACX-1vTR5nOU7WlhU3xbQ89SWqCCRs6-8fzM_bQ1ZYP37z8GqGmXJz4khstuispVRZwTrfOzMtOEbncfJr6s/pub'
 	];
 
 	if (numPage == test++ ) return [
-		'Afficher le résultat: qui a gagné, moi ou l''ordinteur', 'Moi ou Ordinateur', true,
+		'Afficher le résultat: qui a gagné, moi ou l\'ordinteur', 'Moi ou Ordinateur', true,
 		'https://docs.google.com/document/d/e/2PACX-1vSB3KJMYTeAwnqmy8cpsm0NmVaTHwko8r_U16GgsZ33GoPTJQOC-7-Q2-ml1q-nJl4mjK2lxJG2pyUv/pub'
 	];
 
