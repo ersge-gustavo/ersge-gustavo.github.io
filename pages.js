@@ -122,11 +122,3 @@ function getPage ( numPage ) {
 
 
 
-
-
-
-
-
-
-
-
