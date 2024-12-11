@@ -111,6 +111,11 @@ function getPage ( numPage ) {
 		'https://docs.google.com/document/d/e/2PACX-1vQ3Xg5kd082kdZwRDAusClR8A_Xy7Oailp1I2BEwcsmZ5vcETQ9e9X9WztuCVKiPowJuim-ohx4Rmjh/pub'
 	];
 
+	if (numPage == test++ ) return [
+		'Plusieurs marqueurs sur la page', 'SeveralMarkers', true,
+		'https://docs.google.com/document/d/e/2PACX-1vTIVyGuezM-V8KndFrGJU4YpCVEaQ6h7aGF494PZr3Llh8RYL-9kuJyyYGNVa446JeSk2W8fcA1XJet/pub'
+	];
+
 
 	return null;
 }
