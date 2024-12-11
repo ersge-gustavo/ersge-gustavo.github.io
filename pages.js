@@ -92,6 +92,21 @@ function getPage ( numPage ) {
 	];
 
 	if (numPage == test++ ) return [
+		'Un peu de CSS', 'CSSButtons', true,
+		'https://docs.google.com/document/d/e/2PACX-1vS3M9IZ03jeLShmz1HwY-VtlyhXEIIHjg1cNKR1m7kYfheX1XC3Gnxpu2uw9w_zswxZsJykVdXVXTab/pub'
+	];
+
+	if (numPage == test++ ) return [
+		'Fonction choixTriché()', 'ChoixTriche', true,
+		'https://docs.google.com/document/d/e/2PACX-1vTC6jTrF_5Veh4nrRYfWUM25mDOC7zqDtt2jjRi6JKRvES4ycbGnUUO3MTFp38wqS_hDkrg8MHVzeQW/pub'
+	];
+
+	if (numPage == test++ ) return [
+		'Option entre un jeu honnête ou triché', 'CheckBox', true,
+		'https://docs.google.com/document/d/e/2PACX-1vSsyh9E6p5tOiJkgqzgUHH5U5CdT95Fc14Vp4xb_Scc-6UAsLnD3AclxkhjbWU5rnKcbi3sYN0Vk0YX/pub'
+	];
+
+	if (numPage == test++ ) return [
 		'Une carte “Google Maps” dans notre page web', 'EmbedGMaps', true,
 		'https://docs.google.com/document/d/e/2PACX-1vQ3Xg5kd082kdZwRDAusClR8A_Xy7Oailp1I2BEwcsmZ5vcETQ9e9X9WztuCVKiPowJuim-ohx4Rmjh/pub'
 	];
