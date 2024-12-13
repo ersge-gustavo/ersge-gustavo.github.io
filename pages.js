@@ -121,8 +121,10 @@ function getPage ( numPage ) {
 		'https://docs.google.com/document/d/e/2PACX-1vTEvGRjLuQjJSW_zjIsETm0ekvQbg7JskrE4Ie4-4RnMgIbpzFMG0UW7Kcw5KZTu3336tCd5jDEGbfw/pub'
 	];
 
-
-
+	if (numPage == test++ ) return [
+		'Nord, sud, est, ouest', 'NSEO', true,
+		'https://docs.google.com/document/d/e/2PACX-1vThVP5jUPwb1tTtbiAjEC-t2Wnm4vEa_ayWRBku4ZB-WQLRQTLPr4Vqi398IJcQXXqDsDCJ83MP87Sv/pub'
+	];
 
 	return null;
 }
