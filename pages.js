@@ -116,6 +116,13 @@ function getPage ( numPage ) {
 		'https://docs.google.com/document/d/e/2PACX-1vTIVyGuezM-V8KndFrGJU4YpCVEaQ6h7aGF494PZr3Llh8RYL-9kuJyyYGNVa446JeSk2W8fcA1XJet/pub'
 	];
 
+	if (numPage == test++ ) return [
+		'Liste ou array', 'Array', true,
+		'https://docs.google.com/document/d/e/2PACX-1vTEvGRjLuQjJSW_zjIsETm0ekvQbg7JskrE4Ie4-4RnMgIbpzFMG0UW7Kcw5KZTu3336tCd5jDEGbfw/pub'
+	];
+
+
+
 
 	return null;
 }
