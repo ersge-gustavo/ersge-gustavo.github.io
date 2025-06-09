@@ -127,7 +127,7 @@ function getPage ( numPage ) {
 	];
 
 	if (numPage == test++ ) return [
-		'Sort', 'Sort', true,
+		'Inverser une liste', 'InverserListe', true,
 		'https://docs.google.com/document/d/e/2PACX-1vSi9hyFNgVuTu_kTNNfpGHjDnD5WJbz-BuqiUW9hlmyWOjuk0tPyaxqRH8FrsV8xialBiSJW2bFo2Km/pub'
 	];
 
