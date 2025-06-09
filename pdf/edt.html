@@ -1,0 +1,177 @@
+<script src="./edt.js"></script>
+<script src="https://unpkg.com/pdf-lib"></script>
+
+<p><b>
+    2025-03-14 Gustavo: I realized pdf-lib can add elements to a PDF but can't read and modify existing elements
+    so it doesn't work for what I want...
+</b></p>
+
+<style>
+    #drop_zone {
+        border: 5px solid blue;
+        width: 200px;
+        height: 100px;
+    }
+</style>
+
+Modification du PDF de l'EDT pour resoudre les titres trop petits avec "Semaine 5, Semaine 6, Semaine 7, ..."
+
+<br><br>
+
+
+<button onclick="createForm()">Test: createForm()</button>
+
+<br><br>
+
+
+<div 
+    id="drop_zone" 
+    ondrop="dropHandler(event)"
+    ondragover="dragOverHandler(event)"
+>
+    <p>Drag one or more files to this drop zone</p>
+</div>
+
+<br><br>
+
+<span id="console"></span>
+
+
+<script>
+
+function logLine ( text ) {
+    console.log ( text );
+    document.getElementById('console').innerHTML += text+'<br>';
+}
+
+async function processa ( file ) {
+    logLine ( file.name+" "+file.size+" "+file.type );
+
+    const bytes = await file.arrayBuffer();
+    const pdfDoc = await PDFLib.PDFDocument.load ( bytes );
+    const helveticaFont = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+
+    const firstPage = pages[0];
+    const { width, height } = firstPage.getSize();
+    firstPage.drawText('This text was added with JavaScript!', {
+        x: 5,
+        y: height / 2 + 300,
+        size: 50,
+        font: helveticaFont,
+        color: PDFLib.rgb(0.95, 0.1, 0.1),
+        rotate: PDFLib.degrees(-Math.random()*80),
+    })
+  
+    const pdfBytes = await pdfDoc.save();
+
+    const downloadLink = document.createElement('a');
+    const fileURL = URL.createObjectURL ( new Blob ( [pdfBytes], {type:'application/pdf'} ) );
+    downloadLink.href = fileURL;
+    downloadLink.download = file.name;
+    document.body.appendChild ( downloadLink );
+    downloadLink.click();
+    URL.revokeObjectURL ( fileURL );
+}
+
+function dropHandler(ev) {
+    logLine ( '--- files dropped' );
+
+    // Prevent default behavior (Prevent file from being opened)
+    ev.preventDefault();
+    
+    if (ev.dataTransfer.items) {
+        // Use DataTransferItemList interface to access the file(s)
+        [...ev.dataTransfer.items].forEach((item, i) => {
+            // If dropped items aren't files, reject them
+            if (item.kind === "file") {
+                processa ( item.getAsFile() );
+            }
+        });
+    } else {
+        // Use DataTransfer interface to access the file(s)
+        [...ev.dataTransfer.files].forEach((file, i) => {
+            processa ( file );
+        });
+    }
+    
+}
+
+function dragOverHandler(ev) {
+    // Prevent default behavior (Prevent file from being opened)
+    ev.preventDefault();
+}    
+
+
+async function createForm() {
+  const pdfDoc = await PDFLib.PDFDocument.create()
+
+  const page = pdfDoc.addPage([550, 750])
+
+  const form = pdfDoc.getForm()
+
+  page.drawText('Enter your favorite superhero:', { x: 50, y: 700, size: 20 })
+
+  const superheroField = form.createTextField('favorite.superhero')
+  superheroField.setText('One Punch Man')
+  superheroField.addToPage(page, { x: 55, y: 640 })
+
+  page.drawText('Select your favorite rocket:', { x: 50, y: 600, size: 20 })
+
+  page.drawText('Falcon Heavy', { x: 120, y: 560, size: 18 })
+  page.drawText('Saturn IV', { x: 120, y: 500, size: 18 })
+  page.drawText('Delta IV Heavy', { x: 340, y: 560, size: 18 })
+  page.drawText('Space Launch System', { x: 340, y: 500, size: 18 })
+
+  const rocketField = form.createRadioGroup('favorite.rocket')
+  rocketField.addOptionToPage('Falcon Heavy', page, { x: 55, y: 540 })
+  rocketField.addOptionToPage('Saturn IV', page, { x: 55, y: 480 })
+  rocketField.addOptionToPage('Delta IV Heavy', page, { x: 275, y: 540 })
+  rocketField.addOptionToPage('Space Launch System', page, { x: 275, y: 480 })
+  rocketField.select('Saturn IV')
+
+  page.drawText('Select your favorite gundams:', { x: 50, y: 440, size: 20 })
+
+  page.drawText('Exia', { x: 120, y: 400, size: 18 })
+  page.drawText('Kyrios', { x: 120, y: 340, size: 18 })
+  page.drawText('Virtue', { x: 340, y: 400, size: 18 })
+  page.drawText('Dynames', { x: 340, y: 340, size: 18 })
+
+  const exiaField = form.createCheckBox('gundam.exia')
+  const kyriosField = form.createCheckBox('gundam.kyrios')
+  const virtueField = form.createCheckBox('gundam.virtue')
+  const dynamesField = form.createCheckBox('gundam.dynames')
+
+  exiaField.addToPage(page, { x: 55, y: 380 })
+  kyriosField.addToPage(page, { x: 55, y: 320 })
+  virtueField.addToPage(page, { x: 275, y: 380 })
+  dynamesField.addToPage(page, { x: 275, y: 320 })
+
+  exiaField.check()
+  dynamesField.check()
+
+  page.drawText('Select your favorite planet*:', { x: 50, y: 280, size: 20 })
+
+  const planetsField = form.createDropdown('favorite.planet')
+  planetsField.addOptions(['Venus', 'Earth', 'Mars', 'Pluto'])
+  planetsField.select('Pluto')
+  planetsField.addToPage(page, { x: 55, y: 220 })
+
+  page.drawText('Select your favorite person:', { x: 50, y: 180, size: 18 })
+
+  const personField = form.createOptionList('favorite.person')
+  personField.addOptions([
+    'Julius Caesar',
+    'Ada Lovelace',
+    'Cleopatra',
+    'Aaron Burr',
+    'Mark Antony',
+  ])
+  personField.select('Ada Lovelace')
+  personField.addToPage(page, { x: 55, y: 70 })
+
+  page.drawText(`* Pluto should be a planet too!`, { x: 15, y: 15, size: 15 })
+
+  const pdfBytes = await pdfDoc.save()
+}
+
+</script>
