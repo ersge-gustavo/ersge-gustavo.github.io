@@ -1,5 +1,5 @@
 // by gustavo.exel@ersge.ch
-// https://github.com/gustabmo/ersge-javascript-11e
+// https://github.com/ersge-gustavo/ersge-gustavo.github.io
 
 function ecrireDansUnSpan ( span, text ) {
 	document.getElementById(span).innerHTML=text;
