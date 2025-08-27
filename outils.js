@@ -1,4 +1,4 @@
-// by gustavo.exel@ersge.ch
+// by gustavo.exel@ersge.ch guexel@gmail.com
 // https://github.com/ersge-gustavo/ersge-gustavo.github.io
 
 function ecrireDansUnSpan ( span, text ) {
