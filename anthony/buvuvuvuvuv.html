@@ -1,0 +1,24 @@
+<script src="https://ersge-gustavo.github.io/outils.js"></script>
+
+
+Je veux passer mes vacances à
+<span id="ville"></span>
+qui se trouve
+<span id="pays"></span>
+
+<br><br>
+
+<button onclick="lieuEtPays('Melbourne','en Australie','green')">Melbourne</button>
+<button onclick="lieuEtPays('Tortuguero','au Costa Rica','red')">Tortuguero</button>
+<button onclick="lieuEtPays('Rio De Janerio','Brésil','yellow')">Rio de Janeiro</button>
+
+<script>
+    function lieuEtPays ( ville, pays, couleur ) {
+        ecrireDansUnSpan('ville',ville);
+        ecrireDansUnSpan('pays',pays);
+        couleurDunSpan('ville',couleur)
+        couleurDunSpan('pays',couleur)
+
+    }
+</script>   
+
