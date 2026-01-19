@@ -1,4 +1,4 @@
- <script src="https://ersge-gustavo.github.io/outils.js"></script>
+<script src="https://ersge-gustavo.github.io/outils.js"></script>
 
 <button onclick="Jejoue('papier')">papier</button>
 
@@ -28,7 +28,7 @@ Resultat :
 
 <script>
     function Jejoue(Monchoix) {
-        mettreUneImage( 'monimage', papier+'.jpg'); 
+        mettreUneImage( 'jechoisi', Monchoix+'.jpg'); 
 
         choixOrdi = choixAleatoire();
 
@@ -36,17 +36,17 @@ Resultat :
 
         if(Monchoix == choixOrdi){ 
             resultat.innerText ='egalite'; 
-        } else 
-            {if ((Monchoix == 'pierre' && choixOrdi == 'ciseaux')
-            ||
-        (Monchoix == 'ciseaux' && choixOrdi == 'papier')||
-        (Monchoix == 'papier' && choixOrdi == 'pierre') )
-        
-        {resultat.innerText = 'moi'}
-        else {
-        resultat.innerText = 'ordi' ; }}
-
-           
+        } else {
+            if ((Monchoix == 'pierre' && choixOrdi == 'ciseaux')
+                ||
+                (Monchoix == 'ciseaux' && choixOrdi == 'papier')||
+                (Monchoix == 'papier' && choixOrdi == 'pierre') 
+            ){
+                resultat.innerText = 'moi'
+            }else {
+                resultat.innerText = 'ordi' ; 
+            }
+        }           
     }
 
 
