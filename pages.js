@@ -127,8 +127,13 @@ function getPage ( numPage ) {
 	];
 
 	if (numPage == test++ ) return [
-		'Inverser une liste', 'InverserListe', true,
+		'Markers en diagonal', 'Diagonal', true,
 		'https://docs.google.com/document/d/e/2PACX-1vSi9hyFNgVuTu_kTNNfpGHjDnD5WJbz-BuqiUW9hlmyWOjuk0tPyaxqRH8FrsV8xialBiSJW2bFo2Km/pub'
+	];
+
+	if (numPage == test++ ) return [
+		'Markers dans un rectangle', 'Rectangle', true,
+		'https://docs.google.com/document/d/e/2PACX-1vThMOjUAOL4f6QG5Bh5Xkm7t5vQwQ5S29q-N1Lwenxj-1jqxdQju4Y3Yx04dkj3H5TUeX5dfznzzrBU/pub'
 	];
 
 
