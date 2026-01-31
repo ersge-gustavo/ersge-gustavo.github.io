@@ -70,7 +70,7 @@
             <span id='spanNumPage' style="font-size:12px"></span>
 			<span id='spanPageTitle' style="font-size:12px"></span>
             &nbsp;&nbsp;
-			(<span id='idBrowser' style="font-size:10px"></span>)
+			(<span id='spanIdBrowser' style="font-size:10px"></span>)
         </div>
     </div>
 
@@ -98,20 +98,20 @@
             let idBrowser = getIdBrowser();
             let pageData = getPage ( currPage );
 
-            document.getElementById('spanNumPage').innerHTML = currPage;
-            document.getElementById('idBrowser').innerHTML = idBrowser;
+            spanNumPage.innerHTML = currPage;
+            spanIdBrowser.innerHTML = idBrowser;
 
             let frame = document.querySelector('.main-iframe');
 
 
             if ((pageData==null) || (pageData[1] == "") || (pageData[3] == "")) {
-                document.getElementById('spanPageTitle').innerHTML = null;
+                spanPageTitle.innerHTML = null;
 
                 frame.setAttribute('title','Page inexistante');
                 frame.setAttribute('src','inexistante.html');
 
             } else {
-                document.getElementById('spanPageTitle').innerHTML = pageData[0];
+                spanPageTitle.innerHTML = pageData[0];
 
                 frame.setAttribute('title',pageData[0]);
 
