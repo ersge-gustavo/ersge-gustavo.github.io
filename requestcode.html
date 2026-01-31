@@ -3,6 +3,7 @@
 <center>
 
 	<br> <br> <br> <br>
+	Test 2026-01-31
 	<br> <br> <br> <br>
 
 	<img id="qrcode">
@@ -41,13 +42,13 @@
 		// unblockCode = Math.abs ( (calculateCRC32 ( qrtext ) >> 1) % 1000000 );
 		unblockCode = calculateCRC32 ( qrtext ) % 100000n;
 
-		document.getElementById ( 'qrcode' ).setAttribute ( 
+		qrcode.setAttribute ( 
 			"src",
 			"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+qrtext
 		);
 
-		document.getElementById ( 'entercode' ).value = "";
-		document.getElementById ( 'entercode' ).focus();
+		entercode.value = "";
+		entercode.focus();
 	}
 
 
@@ -59,7 +60,7 @@
 
 
 	function checkCode () {
-		let valueEntered = document.getElementById("entercode").value;
+		let valueEntered = entercode.value;
 		if (
 			(valueEntered == unblockCode) 
 			||
