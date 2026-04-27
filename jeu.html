@@ -1,0 +1,72 @@
+
+<style>
+    body {
+        background-color:aquamarine;
+    }
+    
+    button {
+      background-color: #1899D6;
+      border: solid transparent;
+      border-radius: 16px;
+      border-width: 0 0 4px;
+      color: #FFFFFF;
+      font-weight: 700;
+      letter-spacing: .8px;
+      line-height: 20px;
+      padding: 13px 16px;
+      text-transform: uppercase;
+      transform: translateZ(0);
+    }
+    
+    img {
+      opacity: 1.0;
+    }
+    img:hover {
+      opacity: 0.8;
+    }
+</style>
+
+
+<button onclick="jeJoue('papier')">Papier</button>
+<button aillou')">Caillou</button>
+<button onclick="jeJoue('ciseaux')">Ciseaux</button>
+<br><br>
+<img id="monchoix">
+<img id="ordi">
+<br>
+<br>
+Résultat: <span id="resultat" style="color:red">ici on va avoir le résultat à chaque fois</span>
+
+<script>
+    function jeJoue(monChoix) {
+        document.getElementById('monchoix').setAttribute ( 'src', monChoix+'.jpg');
+
+        choixOrdi = choixAleatoire();
+        document.getElementById('ordi').setAttribute ('src', choixOrdi+'.jpg');
+
+        if (monChoix == choixOrdi) {
+            resultat = 'egalité';
+        } else {
+            resultat = 'pas égalité mais je ne sais pas encore qui a gagné';
+        }
+        document.getElementById('resultat').innerHTML = resultat;
+    }
+
+    function choixAleatoire() {
+        aleatoire = Math.random();
+        if (aleatoire < 0.333) {
+            return 'papier';
+        } else {
+            if (aleatoire < 0.666) {
+                return 'caillou';
+            } else {
+                return 'ciseaux';
+            }
+        }
+    }
+
+    function choixTriché() {
+        // ... il faut que vous écrivez cette fonction de façon que l'ordinateur ne gagne jamais ...
+    }
+
+</script>
