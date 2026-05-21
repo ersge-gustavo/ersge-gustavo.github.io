@@ -136,6 +136,11 @@ function getPage ( numPage ) {
 		'https://docs.google.com/document/d/e/2PACX-1vThMOjUAOL4f6QG5Bh5Xkm7t5vQwQ5S29q-N1Lwenxj-1jqxdQju4Y3Yx04dkj3H5TUeX5dfznzzrBU/pub'
 	];
 
+	if (numPage == test++ ) return [
+		'Exemple du QR-Code', 'QRCode', true,
+		'https://ersge.ch/'
+	];
+
 
 
 	return null;
