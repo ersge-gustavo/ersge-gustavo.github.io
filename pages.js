@@ -132,7 +132,7 @@ function getPage ( numPage ) {
 	];
 
 	if (numPage == test++ ) return [
-		'Markers dans un rectangle', 'Rectangle', false,
+		'Markers forment un rectangle', 'Rectangle', false,
 		'https://docs.google.com/document/d/e/2PACX-1vThMOjUAOL4f6QG5Bh5Xkm7t5vQwQ5S29q-N1Lwenxj-1jqxdQju4Y3Yx04dkj3H5TUeX5dfznzzrBU/pub'
 	];
 
